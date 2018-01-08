@@ -3,7 +3,7 @@
 //  KnitCollector
 //
 //  Created by Dan Waseen on 1/7/18.
-//  Copyright © 2018 RevWon. All rights reserved.
+//  Copyright © 2018 RevWon. All rights.. reserved.
 //
 
 import UIKit
