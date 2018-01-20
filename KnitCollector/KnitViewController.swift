@@ -14,13 +14,26 @@ class KnitViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     
     @IBOutlet weak var titletextField: UITextField!
     
+    @IBOutlet weak var deleteButton: UIButton!
+    
+    @IBOutlet weak var addupdatebutton: UIButton!
+    
     var knitPicker = UIImagePickerController()
+    
+    var knit : Knit? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
         knitPicker.delegate = self
+        if knit != nil {
+            knitimageView.image = UIImage(data: knit!.knitImage as! Data)
+            titletextField.text = knit!.title
+            addupdatebutton.setTitle("Update", for: .normal)
+        } else{
+            deleteButton.isHidden = true
+        }
     }
 
 
@@ -38,16 +51,33 @@ class KnitViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     }
     
     @IBAction func addTapped(_ sender: Any) {
-     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
         
-       let knit  = Knit(context: context)
-        knit.title = titletextField.text
-        knit.knitImage = UIImagePNGRepresentation(knitimageView.image!)
-        
+        if knit != nil{
+            knit!.title = titletextField.text
+            knit!.knitImage = UIImagePNGRepresentation(knitimageView.image!)
+            
+        }else{
+            let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+            
+            let knit  = Knit(context: context)
+            knit.title = titletextField.text
+            knit.knitImage = UIImagePNGRepresentation(knitimageView.image!)
+        }
+
         (UIApplication.shared.delegate as! AppDelegate).saveContext()
         navigationController?.popViewController(animated: true)
     }
 
+    @IBAction func deleteTapped(_ sender: Any) {
+        
+        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        context.delete(knit!)
+    }
+    
     @IBAction func cameraTapped(_ sender: Any) {
+        
+        knitPicker.sourceType = .camera
+        present(knitPicker, animated: true, completion: nil)
+        
     }
 }

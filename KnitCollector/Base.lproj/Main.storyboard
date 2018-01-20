@@ -7,6 +7,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
+        <capability name="Baseline standard spacing" minToolsVersion="9.0"/>
         <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -37,7 +38,7 @@
                     <navigationItem key="navigationItem" id="VDP-nl-KmC">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="bOD-Er-let">
                             <connections>
-                                <segue destination="6kb-jP-7qM" kind="show" id="Fk3-hB-UWL"/>
+                                <segue destination="6kb-jP-7qM" kind="show" identifier="knitSegue" id="Fk3-hB-UWL"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -76,6 +77,13 @@
                                     <action selector="addTapped:" destination="6kb-jP-7qM" eventType="touchUpInside" id="5bI-A6-Zn3"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="axy-rs-zhh">
+                                <rect key="frame" x="137" y="432" width="46" height="30"/>
+                                <state key="normal" title="Delete"/>
+                                <connections>
+                                    <action selector="deleteTapped:" destination="6kb-jP-7qM" eventType="touchUpInside" id="0yh-0y-MNB"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -87,7 +95,9 @@
                             <constraint firstItem="l7y-6U-0dJ" firstAttribute="centerX" secondItem="I9L-eg-2kc" secondAttribute="centerX" id="cvx-4W-VP7"/>
                             <constraint firstItem="IEz-8D-gfM" firstAttribute="centerX" secondItem="I9L-eg-2kc" secondAttribute="centerX" id="eOU-kU-XOD"/>
                             <constraint firstItem="l7y-6U-0dJ" firstAttribute="top" secondItem="iN4-P1-htu" secondAttribute="bottom" constant="64" id="enF-7y-xpZ"/>
+                            <constraint firstItem="axy-rs-zhh" firstAttribute="centerX" secondItem="I9L-eg-2kc" secondAttribute="centerX" id="fRL-si-f7S"/>
                             <constraint firstItem="iN4-P1-htu" firstAttribute="width" secondItem="IEz-8D-gfM" secondAttribute="width" id="ino-QI-Fiq"/>
+                            <constraint firstItem="axy-rs-zhh" firstAttribute="firstBaseline" secondItem="l7y-6U-0dJ" secondAttribute="baseline" constant="20" symbolType="layoutAnchor" id="jVI-ag-LCk"/>
                             <constraint firstItem="IEz-8D-gfM" firstAttribute="top" secondItem="KWX-tF-AOY" secondAttribute="top" constant="41" id="p1Q-dW-ydR"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="KWX-tF-AOY"/>
@@ -107,6 +117,8 @@
                         </rightBarButtonItems>
                     </navigationItem>
                     <connections>
+                        <outlet property="addupdatebutton" destination="l7y-6U-0dJ" id="znY-4P-Skx"/>
+                        <outlet property="deleteButton" destination="axy-rs-zhh" id="rRB-34-cx3"/>
                         <outlet property="knitimageView" destination="IEz-8D-gfM" id="CG9-Ct-hwT"/>
                         <outlet property="titletextField" destination="iN4-P1-htu" id="WIM-L6-hjH"/>
                     </connections>

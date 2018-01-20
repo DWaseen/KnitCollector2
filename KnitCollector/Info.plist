@@ -20,8 +20,8 @@
 	<string>1</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>We want access to existing photos of knits</string>
-	<key>LSApplicationCategoryType</key>
-	<string></string>
+	<key>NSCameraUsageDescription</key>
+	<string>We need access to camera to get knit picture</string>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>

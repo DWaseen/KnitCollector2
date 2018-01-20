@@ -39,5 +39,14 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         cell.imageView?.image = UIImage(data: knit.knitImage as! Data)
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let knit = knits[indexPath.row]
+        performSegue(withIdentifier: "knitSegue", sender: knit)
+    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let nextVC = segue.destination as! KnitViewController
+        nextVC.knit = sender as? Knit
+    }
 }
 
