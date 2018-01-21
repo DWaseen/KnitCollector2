@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 class KnitViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
